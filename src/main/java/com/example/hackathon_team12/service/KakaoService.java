@@ -5,6 +5,7 @@ import com.example.hackathon_team12.domain.RefreshToken;
 import com.example.hackathon_team12.domain.SocialAccessToken;
 import com.example.hackathon_team12.dto.SocialUserInfoDto;
 import com.example.hackathon_team12.dto.TokenDto;
+import com.example.hackathon_team12.dto.UserInfoDto;
 import com.example.hackathon_team12.dto.responseDto.GlobalResponseDto;
 import com.example.hackathon_team12.exception.CustomException;
 import com.example.hackathon_team12.exception.ErrorCode;
@@ -72,7 +73,9 @@ public class KakaoService {
         //토큰 발급후 response
         createToken(member,response);
 
-        return GlobalResponseDto.success(socialUserInfoDto, "로그인이 완료되었습니다");
+        UserInfoDto userInfoDto = new UserInfoDto(member);
+
+        return GlobalResponseDto.success(userInfoDto, "로그인이 완료되었습니다");
     }
 
     //인가코드를 통해 access_token 발급받기
