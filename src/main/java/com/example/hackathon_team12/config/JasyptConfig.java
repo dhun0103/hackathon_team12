@@ -1,4 +1,4 @@
-package com.example.hackathon_team12;
+package com.example.hackathon_team12.config;
 
 import org.jasypt.encryption.StringEncryptor;
 import org.jasypt.encryption.pbe.PooledPBEStringEncryptor;
