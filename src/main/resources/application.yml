@@ -1,0 +1,31 @@
+security:
+  oauth2:
+    client:
+      registration:
+        kakao:
+          client-secret: ENC(J4KeBmKJFYx1iNmpI0Lx4DUUziK07zu3Qyzrb+Ph0IZRhvZXMyEM9NQaheLsw0PM)
+          scope: profile_nickname, account_email
+          redirect-uri: https://godchoice.shop/member/signup/kakao
+          client-authentication-method: POST
+          client-id: ENC(GRwC4xDK2+Li+1SoOSTQjPCUBW1RBhQIEsPlm21/u1VCOQI4L0UzvwfBEQsnJ+vJ)
+          authorization-grant-type: authorization_code
+          client-name: kakao
+
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+  datasource:
+    password: ENC(wCrNg1f7tf5wVO/OGw5g458AaQb5occF)
+    username: ENC(2UhnLtT2f+qnQUy82vPX/w==)
+    url: ENC(XU3olbL81PtyATJ/oSCLSyXE3j82zt907UvZrvPXVzDQaoTLTWTAnwehnn4vR8rtywZhJJaN6b8z+9Xvd3KVL9txcaQ/64vIwlynROR7279cigd8Nq/BMnOWCtAkBpYqWtkoUGziYpQ=)
+
+
+jasypt:
+  encryptor:
+    bean: jasyptStringEncryptor
+
+
+jwt:
+  secret:
+    key: ENC(ozcaEdHaK91s6z4ba4phGhsg77E5VyjJkthb3zHwgBWuTsKENipzM8zFRrsefyMA/GTzI77myTq03WrqMItun0A9xYgQbJl6jhHI2xHOZWHoP1RJtRgwjXGRWkCGW4lDo2LhoUmpVI43aasJytPV2zGAxjce6DZ18+FBoKwA7652FsDwNZ18EwjRMnNyS43F7nv9MVrAoOT8GBUZFdRdPj77LvTROdQLK8UJnq6T+SEdWGYNQQWBFhQ1kNEsGJs5kUmIIv7yXqWa9hcAO3KZyE1u389qn6nUU2fj/s7f8JR5j1wuEh5ylIVfRLif8juo91yUlOZPt2OOn+gP3ZPFymkUnhYvuQumEn38+FYfuME=)
