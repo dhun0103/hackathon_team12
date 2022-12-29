@@ -18,6 +18,7 @@ spring:
             client-id: ENC(3k14MJnWDjzY4FmW5s6XKhJKovHjBHj3fcazJAq25E4UMjIRnE0X1zgtSprdw8xu)
             authorization-grant-type: authorization_code
             client-name: kakao
+            client-secret: ENC(nYpVaoDr8kiYhcZ8e7PBKU/g1blUTV2mRWazyyM0XCCRLbWQPrQC1YB/EUx3P52v)
         provider:
           kakao:
             authorization-uri: https://kauth.kakao.com/oauth/authorize

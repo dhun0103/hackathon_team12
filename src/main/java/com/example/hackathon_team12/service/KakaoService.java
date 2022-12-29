@@ -40,6 +40,8 @@ public class KakaoService {
 
     @Value("${spring.security.oauth2.client.registration.kakao.client-id}")
     private String kakaoClientId;
+    @Value("${spring.security.oauth2.client.registration.kakao.client-secret}")
+    private String kakaoClientSecret;
     @Value("${spring.security.oauth2.client.registration.kakao.redirect-uri}")
     private String redirect_uri;
     @Value("${spring.security.oauth2.client.provider.kakao.user-info-uri}")
@@ -84,6 +86,7 @@ public class KakaoService {
         body.add("client_id", kakaoClientId);
         body.add("redirect_uri", redirect_uri);
         body.add("code", code);
+        body.add("client_secret", kakaoClientSecret);
 
         // HTTP 요청 보내기
         HttpEntity<MultiValueMap<String, String>> kakaoTokenRequest =
