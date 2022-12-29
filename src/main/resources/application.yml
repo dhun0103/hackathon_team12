@@ -1,16 +1,3 @@
-security:
-  oauth2:
-    client:
-      registration:
-        kakao:
-          client-secret: ENC(J4KeBmKJFYx1iNmpI0Lx4DUUziK07zu3Qyzrb+Ph0IZRhvZXMyEM9NQaheLsw0PM)
-          scope: profile_nickname, account_email
-          redirect-uri: https://godchoice.shop/member/signup/kakao
-          client-authentication-method: POST
-          client-id: ENC(GRwC4xDK2+Li+1SoOSTQjPCUBW1RBhQIEsPlm21/u1VCOQI4L0UzvwfBEQsnJ+vJ)
-          authorization-grant-type: authorization_code
-          client-name: kakao
-
 spring:
   jpa:
     hibernate:
@@ -19,6 +6,24 @@ spring:
     password: ENC(wCrNg1f7tf5wVO/OGw5g458AaQb5occF)
     username: ENC(2UhnLtT2f+qnQUy82vPX/w==)
     url: ENC(XU3olbL81PtyATJ/oSCLSyXE3j82zt907UvZrvPXVzDQaoTLTWTAnwehnn4vR8rtywZhJJaN6b8z+9Xvd3KVL9txcaQ/64vIwlynROR7279cigd8Nq/BMnOWCtAkBpYqWtkoUGziYpQ=)
+
+  security:
+    oauth2:
+      client:
+        registration:
+          kakao:
+            scope: profile_nickname, account_email
+            redirect-uri: ENC(m5LNxnNTUlCaBhORqxRi8fDgwK8BrxocaLqQggr1NO0=)
+            client-authentication-method: POST
+            client-id: ENC(3k14MJnWDjzY4FmW5s6XKhJKovHjBHj3fcazJAq25E4UMjIRnE0X1zgtSprdw8xu)
+            authorization-grant-type: authorization_code
+            client-name: kakao
+        provider:
+          kakao:
+            authorization-uri: https://kauth.kakao.com/oauth/authorize
+            token-uri: https://kauth.kakao.com/oauth/token
+            user-info-uri: https://kapi.kakao.com/v2/user/me
+            user-name-attribute: kakao_account
 
 
 jasypt:

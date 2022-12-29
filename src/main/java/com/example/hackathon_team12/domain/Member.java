@@ -1,5 +1,6 @@
 package com.example.hackathon_team12.domain;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -21,4 +22,18 @@ public class Member {
 
     @Column
     private String accountName;
+
+    @Column
+    private Boolean isAccepted = false;
+
+    @Column
+    private Boolean isDeleted;
+
+    @Builder
+    public Member(String email, String accountName, Boolean isAccepted, Boolean isDeleted){
+        this.email=email;
+        this.accountName=accountName;
+        this.isAccepted=isAccepted;
+        this.isDeleted=isDeleted;
+    }
 }
