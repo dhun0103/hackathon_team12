@@ -41,8 +41,8 @@ public class PostController {
     // 게시글 삭제
     @DeleteMapping("/{postId}")
     public GlobalResponseDto<?> deletePost(@PathVariable Long postId,
-                                           @RequestBody(required = false) CheckRequestDto checkRequestDto) {
-        return postService.deletePost(postId, checkRequestDto);
+                                           @RequestParam(value="pw") @Valid String pw) {
+        return postService.deletePost(postId, pw);
     }
 
     // 게시글 상세조회

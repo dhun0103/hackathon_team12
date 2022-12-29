@@ -50,13 +50,13 @@ public class PostService {
     }
 
     @Transactional
-    public GlobalResponseDto<?> deletePost(Long postId, CheckRequestDto checkRequestDto) {
+    public GlobalResponseDto<?> deletePost(Long postId, String pw) {
 
         Post post = postRepository.findById(postId).orElseThrow(
                 () -> new CustomException(ErrorCode.Not_Found_Post)
         );
 
-        if (checkRequestDto.getPw().equals(post.getPw())) {
+        if (post.getPw().equals(pw)) {
 
             postRepository.deleteById(postId);
 
