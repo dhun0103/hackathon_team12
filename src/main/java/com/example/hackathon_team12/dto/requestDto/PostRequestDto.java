@@ -1,22 +1,19 @@
 package com.example.hackathon_team12.dto.requestDto;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.validation.constraints.NotBlank;
 
-@AllArgsConstructor
-@NoArgsConstructor
-@Data
+@Getter
+@Setter
 public class PostRequestDto {
 
-    @NotBlank
+    @NonNull
     private String title;
-    @NotBlank
+    @NonNull
     private String content;
-    @NotBlank
+    @NonNull
     private String accountId;
-    @NotBlank
+    @NonNull
     private String pw;
 }

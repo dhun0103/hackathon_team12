@@ -13,11 +13,11 @@ public enum ErrorCode {
 
     Not_Found_Post(HttpStatus.NOT_FOUND.value(), "P001", "게시물을 찾을 수 없습니다."),
     Not_Match_User(HttpStatus.BAD_REQUEST.value(), "P002", "작성자가 일치하지 않습니다."),
-    Not_Found_Comment(HttpStatus.NOT_FOUND.value(), "P003", "댓글이 존재하지 않습니다."),
+    Not_Found_Comment(HttpStatus.NOT_FOUND.value(), "P003", "댓글이 존재하지 않습니다.");
 
 
 
-    ERROR(HttpStatus.NO_CONTENT.value(),"S001","알수없는오류");
+//    ERROR(HttpStatus.NO_CONTENT.value(),"S001","알수없는오류");
 
     private final int status;
     private final String code;

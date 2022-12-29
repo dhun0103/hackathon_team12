@@ -7,11 +7,13 @@ import com.example.hackathon_team12.dto.responseDto.GlobalResponseDto;
 import com.example.hackathon_team12.enumclass.Tag;
 import com.example.hackathon_team12.service.PostService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.io.IOException;
 
+@Slf4j
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/posts")
@@ -21,16 +23,15 @@ public class PostController {
 
     // 게시글 작성
     @PostMapping
-    public GlobalResponseDto<?> createPost(@RequestPart(required = false) PostRequestDto askPostRequestDto,
+    public GlobalResponseDto<?> createPost(@RequestBody(required = false) PostRequestDto postRequestDto,
                                            @RequestParam(value = "tag") @Valid Tag tag) throws IOException {
-
-        return postService.createPost(askPostRequestDto, tag);
+        return postService.createPost(postRequestDto, tag);
     }
 
     // 게시글 수정
     @PutMapping("/{postId}")
     public GlobalResponseDto<?> updatePost(@PathVariable Long postId,
-                                           @RequestPart(required = false) PostUpdateRequestDto postUpdateRequestDto,
+                                           @RequestBody(required = false) PostUpdateRequestDto postUpdateRequestDto,
                                            @RequestParam(value = "tag") @Valid Tag tag) throws IOException {
 
 
@@ -40,7 +41,7 @@ public class PostController {
     // 게시글 삭제
     @DeleteMapping("/{postId}")
     public GlobalResponseDto<?> deletePost(@PathVariable Long postId,
-                                           @RequestPart(required = false) CheckRequestDto checkRequestDto) {
+                                           @RequestBody(required = false) CheckRequestDto checkRequestDto) {
         return postService.deletePost(postId, checkRequestDto);
     }
 
@@ -61,7 +62,7 @@ public class PostController {
     // 본인확인
     @PostMapping("/{postId}")
     public GlobalResponseDto<?> check(@PathVariable Long postId,
-                                      @RequestPart(required = false) CheckRequestDto checkRequestDto) {
+                                      @RequestBody(required = false) CheckRequestDto checkRequestDto) {
 
         return postService.checkPost(postId, checkRequestDto);
     }

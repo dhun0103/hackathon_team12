@@ -25,7 +25,7 @@ public class CommentController {
 
     @DeleteMapping("/{commentId}")
     public GlobalResponseDto<?> deleteComment(@PathVariable Long commentId,
-                                              @RequestPart(required = false) CheckRequestDto checkRequestDto) {
+                                              @RequestBody(required = false) CheckRequestDto checkRequestDto) {
 
         return commentService.deleteComment(commentId, checkRequestDto);
     }

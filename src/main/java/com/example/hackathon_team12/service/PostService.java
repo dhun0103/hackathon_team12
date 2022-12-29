@@ -17,6 +17,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,7 +28,7 @@ public class PostService {
     private final PostRepository postRepository;
 
     @Transactional
-    public GlobalResponseDto<?> createPost(PostRequestDto postRequestDto, Tag tag) {
+    public GlobalResponseDto<?> createPost(PostRequestDto postRequestDto, Tag tag) throws IOException{
 
         Post post = new Post(postRequestDto, tag);
         postRepository.save(post);
@@ -36,7 +37,7 @@ public class PostService {
     }
 
     @Transactional
-    public GlobalResponseDto<?> updatePost(Long postId, PostUpdateRequestDto postUpdateRequestDto, Tag tag) {
+    public GlobalResponseDto<?> updatePost(Long postId, PostUpdateRequestDto postUpdateRequestDto, Tag tag) throws IOException {
 
         Post post = postRepository.findById(postId).orElseThrow(
                 () -> new CustomException(ErrorCode.Not_Found_Post)

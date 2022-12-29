@@ -13,10 +13,9 @@ import java.util.List;
 @Entity
 @Getter
 @NoArgsConstructor
-public class Post extends TimeStamped{
+public class Post extends TimeStamped {
 
     @Id
-    @Column(name = "postId")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long postId;
     @Column(nullable = false)
@@ -33,15 +32,15 @@ public class Post extends TimeStamped{
     @OneToMany(mappedBy = "post", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
     private List<Comment> comments = new ArrayList<>();
 
-    public Post (PostRequestDto postRequestDto, Tag tag) {
+    public Post(PostRequestDto postRequestDto, Tag tag) {
         this.title = postRequestDto.getTitle();
         this.content = postRequestDto.getContent();
-        this.accountId=postRequestDto.getAccountId();
-        this.pw=postRequestDto.getPw();
+        this.accountId = postRequestDto.getAccountId();
+        this.pw = postRequestDto.getPw();
         this.tag = tag;
     }
 
-    public void update (PostUpdateRequestDto postUpdateRequestDto, Tag tag) {
+    public void update(PostUpdateRequestDto postUpdateRequestDto, Tag tag) {
         this.title = postUpdateRequestDto.getTitle();
         this.content = postUpdateRequestDto.getContent();
         this.tag = tag;
