@@ -1,20 +1,30 @@
 package com.example.hackathon_team12.dto.responseDto;
 
+import com.example.hackathon_team12.exception.ErrorCode;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Getter
 @NoArgsConstructor
+@AllArgsConstructor
 public class GlobalResponseDto<T> {
 
-    private String message;
-    private int statusCode;
+    private int status;
+    private T data;
+    private T msg;
 
 
-    public GlobalResponseDto(String message, int statusCode) {
-        this.message = message;
-        this.statusCode = statusCode;
+
+    public static <T> GlobalResponseDto<Object> success(T data, String msg) {
+        return new GlobalResponseDto<>(200, data, msg);
     }
 
+    public static GlobalResponseDto<String> fail(ErrorCode errorCode) {
+        return new GlobalResponseDto<>(errorCode.getStatus(), errorCode.getCode(), errorCode.getMessage());
+    }
+
+    public static GlobalResponseDto<String> fail(String msg) {
+        return new GlobalResponseDto<>(400,null,msg);
+    }
 }
