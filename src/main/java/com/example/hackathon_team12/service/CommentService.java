@@ -40,11 +40,11 @@ public class CommentService {
                 () -> new CustomException(ErrorCode.Not_Found_Comment)
         );
 
-        if (checkRequestDto.getPw().equals(comment.getPw())) {
+        if (comment.getPw().equals(checkRequestDto.getPw())) {
 
             commentRepository.deleteById(commentId);
 
-            return GlobalResponseDto.success(null, "본인확인 되었습니다");
+            return GlobalResponseDto.success(null, "삭제가 완료되었습니다");
         } else {
             throw new CustomException(ErrorCode.Not_Match_User);
         }
