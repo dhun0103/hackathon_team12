@@ -1,7 +1,7 @@
 package com.example.hackathon_team12.security;
 
-import com.example.hackathon_team12.security.jwt.JwtAuthFilter;
-import com.example.hackathon_team12.security.jwt.JwtUtil;
+//import com.example.hackathon_team12.security.jwt.JwtAuthFilter;
+//import com.example.hackathon_team12.security.jwt.JwtUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnWebApplication;
 import org.springframework.boot.autoconfigure.security.ConditionalOnDefaultWebSecurity;
@@ -30,7 +30,7 @@ import java.util.Arrays;
 @ConditionalOnWebApplication(type = ConditionalOnWebApplication.Type.SERVLET)
 public class WebSecurityConfig {
 
-    private final JwtUtil jwtUtil;
+//    private final JwtUtil jwtUtil;
 
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -97,12 +97,11 @@ public class WebSecurityConfig {
                 .antMatchers("/member/**").permitAll()
                 //전체불러오기 허용
                 .antMatchers("/allposts").permitAll()
-                .antMatchers("/**").permitAll()
 
-                .anyRequest().authenticated()
+                .anyRequest().authenticated();
 
-                .and()
-                .addFilterBefore(new JwtAuthFilter(jwtUtil), UsernamePasswordAuthenticationFilter.class);
+//                .and()
+//                .addFilterBefore(new JwtAuthFilter(jwtUtil), UsernamePasswordAuthenticationFilter.class);
 
 
         return http.build();

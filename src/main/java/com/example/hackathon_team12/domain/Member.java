@@ -24,16 +24,12 @@ public class Member {
     private String accountName;
 
     @Column
-    private Boolean isAccepted = false;
+    private String accountPw;
 
-    @Column
-    private Boolean isDeleted;
 
     @Builder
     public Member(String email, String accountName, Boolean isAccepted, Boolean isDeleted){
         this.email=email;
         this.accountName=accountName;
-        this.isAccepted=isAccepted;
-        this.isDeleted=isDeleted;
     }
 }
