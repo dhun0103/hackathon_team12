@@ -13,7 +13,7 @@ spring:
         registration:
           kakao:
             scope: profile_nickname, account_email
-            redirect-uri: ENC(m5LNxnNTUlCaBhORqxRi8fDgwK8BrxocaLqQggr1NO0=)
+            redirect-uri: ENC(iIpeG5R5JR+ImDSciVbihGQgkWrMX2+i30uJS8RRG7Dos555GTiy1PFeWKpxxLYC)
             client-authentication-method: POST
             client-id: ENC(3k14MJnWDjzY4FmW5s6XKhJKovHjBHj3fcazJAq25E4UMjIRnE0X1zgtSprdw8xu)
             authorization-grant-type: authorization_code
